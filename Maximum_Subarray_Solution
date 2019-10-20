@@ -1,0 +1,21 @@
+###Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+
+def MaximumSubarray(mylist):
+  global_max = 0
+  indices = []
+  for i in range(len(mylist)+1):
+    for j in range(len(mylist)+1):
+      if mylist[i:j]:
+        current_max = sum(mylist[i:j])
+        print(current_max, mylist[i:j])
+        if current_max > global_max:
+            global_max = current_max
+            indices.append((i, j-1))
+  return global_max, indices.pop()
+
+
+
+
+
+mylist = [-2,1,-3,4,-1,2,1,-5,4]  
+MaximumSubarray(mylist)
